@@ -1,0 +1,36 @@
+.c-categories {
+  padding: 14px 8px;
+}
+
+.c-categories__title {
+  margin-bottom: 6px;
+  padding: 0 4px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #666;
+}
+
+.c-categories__item {
+  @include text-truncate();
+  display: block;
+  margin-bottom: 2px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #70777b;
+  transition: background-color 0.1s ease-in-out;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+    background: #efefef;
+    color: grey;
+  }
+
+  &.is-active {
+    background: $color-blue-light;
+    color: #444;
+  }
+}

@@ -1,0 +1,17 @@
+.c-logo {
+  line-height: 0;
+  color: #fff;
+  transition: color 0.2s ease-in-out;
+
+  &:hover {
+    color: #999;
+  }
+}
+
+.c-logo__image {
+  width: 100px;
+  height: 16px;
+  fill: currentColor;
+
+
+}

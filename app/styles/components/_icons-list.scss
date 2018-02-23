@@ -1,0 +1,33 @@
+.c-icons-list {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px;
+}
+
+.c-icons-list__item {
+  display: flex;
+  height: 60px;
+  width: 60px;
+  margin: 6px;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid transparent;
+  border-radius: 4px;
+  transition: background-color 0.1s ease-in-out;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover {
+    background-color: $color-gray-light;
+  }
+
+  &.is-active {
+    border-color: $color-blue;
+    background-color: $color-gray-light;
+  }
+
+  svg {
+    max-height: 32px;
+    max-width: 32px;
+  }
+}

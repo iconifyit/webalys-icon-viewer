@@ -1,0 +1,22 @@
+.c-icon-preview {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.c-icon-preview__name {
+  font-size: 20px;
+  line-height: 28px;
+  text-transform: capitalize;
+  margin-bottom: 26px;
+  color: #222;
+  text-align: center;
+}
+
+.c-icon-preview__image {
+  height: 80px;
+  width: 80px;
+  margin-bottom: 26px;
+  fill: #333;
+}

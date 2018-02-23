@@ -1,0 +1,8 @@
+{
+  "name": "icon-viewer",
+  "dependencies": {
+    "normalize-css": "^7.0.0",
+    "file-saver": "^1.3.3",
+    "velocity": "^1.5.0"
+  }
+}

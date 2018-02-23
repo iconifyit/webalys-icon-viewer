@@ -1,0 +1,33 @@
+.c-placeholder {
+  display: flex;
+  flex-grow: 1;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.c-placeholder__image {
+  display: block;
+  margin-top: -5%;
+  margin-bottom: 10px;
+  fill: #888;
+  width: 48px;
+  height: 48px;
+}
+
+.c-placeholder__title {
+  max-width: 300px;
+  font-size: 16px;
+  text-align: center;
+  color: #888;
+}
+
+.c-placeholder__code {
+  display: inline-block;
+  padding: 0 8px;
+  white-space: nowrap;
+  font-size: 14px;
+  border-radius: 3px;
+  background-color: #eee;
+  color: #777;
+}

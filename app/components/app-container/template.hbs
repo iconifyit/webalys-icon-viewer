@@ -1,0 +1,117 @@
+<div class="l-topbar">
+  <a class="c-logo" href="/">
+    {{svg-jar "logo" class="c-logo__image"}}
+  </a>
+
+  <div class="c-topbar-links">
+    <a class="c-topbar-links__item" href="#">About</a>
+    <a class="c-topbar-links__item" href="#">License</a>
+    <a class="c-topbar-links__item" href="#">Contacts</a>
+  </div>
+</div>
+
+<div class="l-main">
+  <div class="l-sidebar">
+    <div class="c-categories">
+      {{#link-to "index"
+          (query-params category=null)
+          class="c-categories__item"
+          activeClass="is-active"
+      }}
+        All icons
+      {{/link-to}}
+
+      {{#each model.categories as |category|}}
+        {{#link-to "index"
+            (query-params category=category.name)
+            class="c-categories__item"
+            activeClass="is-active"
+        }}
+          {{category.name}}
+        {{/link-to}}
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="l-content">
+    <div class="l-content__header">
+      {{search-bar
+          searchQuery=searchQuery
+          setSearchQuery=(action setSearchQuery)
+      }}
+    </div>
+
+    <div class="l-content__body js-content {{if (not icons.length) 'l-content__body--empty'}}">
+      {{#if (not icons.length)}}
+        <div class="c-placeholder">
+          {{#if searchQuery}}
+            {{svg-jar "search-big" class="c-placeholder__image"}}
+          {{/if}}
+
+          <div class="c-placeholder__title">
+            {{#if searchQuery}}
+              We couldn’t find any icons matching
+              <span class="c-placeholder__code">
+                {{searchQuery}}
+              </span>
+            {{else}}
+              No icons found
+            {{/if}}
+
+            {{#if category}}
+              in
+              <span class="c-placeholder__code">
+                {{category}}
+              </span>
+              category
+            {{/if}}
+          </div>
+        </div>
+      {{else}}
+        <div class="c-icons-list">
+          {{#each icons as |icon|}}
+            <div class="js-icon-wrap">
+              {{icons-item
+                  icon=icon
+                  currentIcon=currentIcon
+                  setCurrentIcon=(action "setCurrentIcon")
+              }}
+            </div>
+          {{/each}}
+        </div>
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="l-pane {{if (not currentIcon) 'l-content__body--empty'}}">
+    {{#if currentIcon}}
+      <div class="l-pane__section">
+        {{icon-preview icon=currentIcon}}
+      </div>
+
+      <div class="l-pane__section">
+        <button
+          class="c-btn c-btn--tertiary c-btn--full"
+          {{action "downloadCurrentIcon"}}
+        >
+          Download
+        </button>
+      </div>
+
+      <div class="l-pane__section">
+        <button
+          class="c-btn c-btn--tertiary c-btn--full"
+          {{action "copyCurrentIcon"}}
+        >
+          Copy to Clipboard
+        </button>
+      </div>
+    {{else}}
+      <div class="c-placeholder">
+        <div class="c-placeholder__title">
+          No Selection
+        </div>
+      </div>
+    {{/if}}
+  </div>
+</div>
